@@ -8,22 +8,26 @@ body, header {
   padding: 0;
 }
 
-main {
-  margin-left: 175px;
-  margin-top: 150px;
+.recipe-container {
+  margin: 150px auto;
+  max-width: 600px;
 }
 
 ul {
-  margin-left: -400px;
+  margin-left: -200px;
 }
 
 li {
   list-style: none;
 }
 
+form {
+  margin-bottom: 30px;
+}
+
 footer {
-  margin-left: 175px;
   margin-top: 50px;
+  font-size: 14px;
 }
 
 a:link {
@@ -43,15 +47,19 @@ a:visited {
   background-color: #accbbd;
 }
 
-.search-form-input { 
-  background-color: rgba(136, 174, 147, 0.2);
+.description {
+  line-height: 30px;
+}
+
+.search-form-input {
   margin: 0 auto;
+  outline: none;
   border: none;
   border-radius: 7px;
-  padding: 10px 15px;
-  font-size: 16px;
   width: 300px;
-  outline: none;
+  padding: 10px 15px;
+  background-color: rgba(136, 174, 147, 0.2);
+  font-size: 16px;
   color: #203224;
   font-family: 'Murecho', sans-serif;
   font-weight: 250;
@@ -60,17 +68,19 @@ a:visited {
 }
 
 .search-form-button {
-  background-color: #416743;
-  color: aliceblue;
-  font-family: 'Murecho', sans-serif;
-  font-size: 15px;
-  font-weight: 250;
-  letter-spacing: 1px;
   border: none;
   border-radius: 7px;
   padding: 10px 15px;
+  background-color: #416743;
+  font-size: 15px;
+  color: aliceblue;
+  font-family: 'Murecho', sans-serif;
+  font-weight: 250;
+  letter-spacing: 1px;
 }
 
 .recipe {
   margin-top: 20px;
+  padding: 20px 0px 0px;
+  line-height: 1.5;
 }
