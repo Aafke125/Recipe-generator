@@ -1,16 +1,15 @@
 body {
   background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/161/190/original/71p9oQ_XxqL.jpg?1742818061");
+  background-size: cover;
+  overflow: scroll;
+  position: relative;
+  background-position: top center;
   font-family: 'Murecho', sans-serif;
 }
 
 body, header {
   margin: 0;
   padding: 0;
-}
-
-.recipe-container {
-  margin: 150px auto;
-  max-width: 600px;
 }
 
 ul {
@@ -77,6 +76,11 @@ a:visited {
   font-family: 'Murecho', sans-serif;
   font-weight: 250;
   letter-spacing: 1px;
+}
+
+.recipe-container {
+  margin: 150px auto;
+  max-width: 600px;
 }
 
 .recipe {

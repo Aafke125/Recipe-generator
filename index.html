@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
   <link rel="stylesheet" href="index.css"></link>
   <title>Recipe generator</title>
 </head>
@@ -18,13 +20,12 @@
   </header>
   <div class="recipe-container">
     <h1>Create a vegetarian recipe</h1>
-    <form>
-      <label class="description" for="input">Create a recipe for...</label><br>
-      <input class="search-form-input" type="text" autofocus required>
+    <form id="recipe-generator">
+      <label class="description" for="search-form-input">Create a recipe for...</label><br>
+      <input class="search-form-input" id="search-form-input" type="text" autofocus required>
       <input class="search-form-button" type="submit">
     </form>
-    <div class="recipe">
-      The recipe goes here
+    <div class="recipe" id="recipe">
     </div>
    
     <footer>
