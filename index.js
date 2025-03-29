@@ -1,16 +1,52 @@
-function generateRecipe(event) {
-  event.preventDefault();
+let apiKey = "cc05e6fc059ab2a432b067tfa63aoa4b";
+let recipeText = document.querySelector("#recipe");
+let recipeForm = document.querySelector("#recipe-generator");
 
-  //let recipeText = document.querySelector("#recipe");
-  //recipeText.innerHTML = "Recipe comes here";
+function fetchRecipe(ingredientInput) {
+  let prompt = `Create a unique vegetarian recipe using the following ingredient(s): ${ingredientInput}. 
+  The recipe must include a title, a list of ingredients with measurements, and step-by-step cooking instructions.
+  Do not include any non-vegetarian ingredients. Ensure the recipe is clear and easy to follow.`;
 
-  new Typewriter("#recipe", {
-        strings: "Recipe comes here",
-        autoStart: true,
-        cursor: " ",
-        delay: 50
-      });
+  let context = "Only provide recipes that can be made with a maximum of 10 ingredients. All recipes should be vegetarian.";
+  let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(prompt)}&context=${encodeURIComponent(context)}&key=${apiKey}`;
+
+  axios.get(apiUrl)
+    .then(response => {
+      let recipe = response.data.answer;
+      generateRecipe(recipe);
+    })
+    .catch(error => {
+      recipeText.textContent = "Oops! Something went wrong.";
+      console.error("Error fetching recipe:", error);
+    });
 }
 
-let recipeForm = document.querySelector("#recipe-generator");
-recipeForm.addEventListener("submit", generateRecipe);
+function displayRecipe(event) {
+  event.preventDefault();
+  let ingredientInput = document.querySelector("#search-form-input").value.trim();
+
+  if (ingredientInput === "") {
+    recipeText.textContent = "Please enter at least one ingredient.";
+    return;
+  }
+
+  fetchRecipe(ingredientInput); // Fetch the recipe based on user input
+}
+
+function generateRecipe(recipe) {
+  recipeText.innerHTML = ""; // Clear previous recipe
+
+  // Convert newlines (\n) into HTML <br> for proper line breaks
+  let formattedRecipe = recipe.replace(/\n/g, "<br>");
+
+  new Typewriter(recipeText, {
+    strings: [formattedRecipe],  // Ensure it's formatted correctly
+    autoStart: true,
+    cursor: " ",
+    delay: 50,
+    loop: false,
+    delete: false
+  });
+}
+
+recipeForm.addEventListener("submit", displayRecipe);
