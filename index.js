@@ -43,11 +43,10 @@ function generateRecipe(recipe) {
     autoStart: true,
     cursor: " ",
     delay: 20,
-    loop: false, // Prevents it from looping
+    loop: false,
   })
     .typeString(formattedRecipe) // Type the formatted text
     .start(); // Ensure it runs once and doesn't delete
 }
-
 
 recipeForm.addEventListener("submit", displayRecipe);
