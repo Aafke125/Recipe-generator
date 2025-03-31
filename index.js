@@ -30,7 +30,7 @@ function displayRecipe(event) {
 function fetchRecipe(ingredientInput) {
   let prompt = `Create a unique vegetarian recipe using the following ingredient(s): ${ingredientInput}. 
   The recipe must include a title, a list of ingredients with measurements, and step-by-step cooking instructions.
-  Do not include any non-vegetarian ingredients. Ensure the recipe is clear and easy to follow. The text should considt of a <strong> heading and have bulletpoints in front of the ingredients. Don't use ###, ##, # or **`;
+  Do not include any non-vegetarian ingredients. Ensure the recipe is clear and easy to follow. The text should considt of a <strong> heading and have bulletpoints in front of the ingredients. Do NOT use ###, ##, # or **`;
 
   let context = "Only provide recipes that can be made with a maximum of 10 ingredients. All recipes should be vegetarian.";
   let apiUrl = `https://api.shecodes.io/ai/v1/generate?prompt=${encodeURIComponent(prompt)}&context=${encodeURIComponent(context)}&key=${apiKey}`;
