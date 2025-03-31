@@ -92,6 +92,22 @@ a:visited {
   line-height: 1.5;
 }
 
+#recipe::after {
+  content: "";
+  width: 2px;
+  height: 15px;
+  background: #505e52;
+  display: inline-block;
+
+  animation: cursor-blink 1.5s steps(2) infinite;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 0;
+  }
+}
+
 ::placeholder {
   font-size: 13px;
   color:rgb(124, 123, 123);
