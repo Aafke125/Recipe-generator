@@ -1,42 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recipe Generator</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   
-  <link rel="stylesheet" href="index.css"></link>
-  <title>Recipe generator</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Murecho:wght@100..900&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS (after Bootstrap) -->
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+  <!-- A responsive Bootstrap Navbar -->
   <header>
-        <div class="header-container">
-      <ul></ul>
-    <span><li><a href="https://outofmilk.com/" target="blank">Create a shopping list</a></li></span>
-    <span><li><a href="https://www.self.com/story/11-essential-ingredients-every-new-vegetarian-should-have-on-hand" target="blank">Essential ingredients</a></li></span>
-    <span><li><a href="https://vegetarianism.stackexchange.com/questions/23/what-are-the-health-benefits-of-vegetarianism" target="blank">Health benefits</a></li></span>
-    </ul>
-    </div>
-  </header>
-  <div class="recipe-container">
-    <h1>Create a vegetarian recipe</h1>
-    <form id="recipe-generator">
-      <label class="description" for="search-form-input">Submit your favorite ingredients.</label><br>
-      <input class="search-form-input" id="search-form-input" type="text" placeholder="i.e. tomatoes, rice, broccoli" autofocus required>
-      <input class="search-form-button" id="search-form-button" type="submit">
-    </form>
-    <div class="recipe-hidden" id="recipe">Your recipe wil appear here after a few seconds...</div>
-   
-    <footer>
-        <p>
-          This project was coded by Aafke
-          <a href="https://github.com/Aafke125" target="_blank" class="link">🔗</a> and is on
-          <a href="https://github.com/Aafke125/Recipe-generator" target="_blank" class="link">GitHub</a> and is hosted on
-          <a href="https://app.netlify.com/sites/cookqueen/overview" target="_blank" class="link">Netlify</a>
-        </p>
-      </footer>
+    <nav class="navbar navbar-expand-md custom-navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">🌿 Veggie Recipes</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="https://outofmilk.com/" target="_blank">Create a shopping list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.self.com/story/11-essential-ingredients-every-new-vegetarian-should-have-on-hand" target="_blank">Essential ingredients</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://vegetarianism.stackexchange.com/questions/23/what-are-the-health-benefits-of-vegetarianism" target="_blank">Health benefits</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </nav>
+  </header>
+
+  <!-- Main content container -->
+  <div class="container">
+    <div class="content-container my-5">
+      <h1>Create a vegetarian recipe</h1>
+      <p class="description">Submit your favorite ingredients below.</p>
+      
+      <form id="recipe-generator">
+        <!-- Using Bootstrap's input-group for the form -->
+        <div class="input-group">
+          <input class="form-control search-form-input" id="search-form-input" type="text" placeholder="i.e. tomatoes, rice, broccoli" autofocus required />
+          <button class="btn btn-custom" id="search-form-button" type="submit">Generate</button>
+        </div>
+      </form>
+      
+      <div class="recipe-hidden" id="recipe"></div>
+    </div>
+  </div>
+
+  <footer class="text-center text-success-50 mb-4">
+    <p>
+      This project was coded by Aafke
+      <a href="https://github.com/Aafke125" target="_blank">🔗</a> and is on
+      <a href="https://github.com/Aafke125/Recipe-generator" target="_blank">GitHub</a> and hosted on
+      <a href="https://app.netlify.com/sites/cookqueen/overview" target="_blank">Netlify</a>
+    </p>
+  </footer>
+
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@latest/dist/core.js"></script>
   <script src="index.js"></script>
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
