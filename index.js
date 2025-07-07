@@ -5,11 +5,12 @@ let recipeForm = document.querySelector("#recipe-generator");
 function generateRecipe(recipe) {
   let formattedRecipe = recipe.replace(/\n/g, "<br>");
   
-  // Add a class to show the blinking cursor
+  // This class is already added, but it's fine to have it here
+  // to ensure the cursor is present during typing.
   recipeText.classList.add("typewriter-empty");
 
   new Typewriter(recipeText, {
-    strings: formattedRecipe, // It's cleaner to pass strings directly
+    strings: formattedRecipe,
     autoStart: true,
     cursor: " ",
     delay: 20,
@@ -26,10 +27,12 @@ function displayRecipe(event) {
   event.preventDefault();
   let ingredientInput = document.querySelector("#search-form-input").value.trim();
 
-  // Show the recipe container and initialize it
   let recipeElement = document.querySelector("#recipe");
   recipeElement.classList.remove("recipe-hidden");
-  recipeElement.innerHTML = ""; // Clear previous recipe
+
+  recipeElement.innerHTML = "Generating your recipe, please wait...";
+  recipeElement.classList.add("typewriter-empty");
+
 
   fetchRecipe(ingredientInput);
 }
